@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For My Bujiii 💖</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      padding: 40px;
+    }
+
+    .page { display:none; }
+    .active { display:block; }
+
+    button {
+      padding: 12px 25px;
+      margin: 15px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .cake {
+      font-size: 120px;
+    }
+
+    .gift-btn {
+      display:block;
+      margin:10px auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop>
+  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
+</audio>
+
+<!-- PASSCODE -->
+<div id="p1" class="page active">
+  <h2>Enter Secret Code 🔐💖</h2>
+  <input type="password" id="pass">
+  <br>
+  <button onclick="check()">Unlock 💌</button>
+</div>
+
+<!-- CAKE -->
+<div id="p2" class="page">
+  <h2>🎂 Blow the Candle ra bujiii 😘</h2>
+  <div id="cake" class="cake">🎂</div>
+  <button onclick="blow()">Blow 🎂</button>
+</div>
+
+<!-- LETTER -->
+<div id="p3" class="page">
+  <h2>💌 Open Letter</h2>
+  <button onclick="next(4)">Open 💖</button>
+</div>
+
+<div id="p4" class="page">
+  <p>
+    🎉 Many more happy returns of the day bangarammm ❤️❤️❤️ <br><br>
+    🎂 Happy birthday samuelooooo my bujiii 😘😘😘😘 <br><br>
+    😂 Appude ayipoledhuuuu… inka vundhi neeku gift 🎁
+  </p>
+  <button onclick="next(5)">Next 😏</button>
+</div>
+
+<!-- GIFTS -->
+<div id="p5" class="page">
+  <h2>🎁 Choose Your Gift 😎</h2>
+  <button class="gift-btn" onclick="next(6)">🎁 Gift 1</button>
+  <button class="gift-btn" onclick="next(7)">🎁 Gift 2</button>
+  <button class="gift-btn" onclick="next(8)">🎁 Gift 3</button>
+</div>
+
+<!-- LETTER 1 -->
+<div id="p6" class="page">
+  <p>
+    💖 Many more happy returns of the day bangaram <br><br>
+    Hope you lead your life successfully with your loved ones <br>
+    Adhe nene ayithe baguntadi 🥲
+  </p>
+</div>
+
+<!-- LETTER 2 -->
+<div id="p7" class="page">
+  <p>
+    I never knew a spontaneous decision could change my life…<br>
+    life lo kotha kotha experiences ichav… what not everythinggg…<br><br>
+
+    podhunne lechedhi nee thought tho ne padukonedhi nee thought tho ne 💭<br><br>
+
+    I will never leave you no matter what… unless and until you do…<br>
+    chinna chinna godavalu ayina… nee prema marchipolenu ❤️<br><br>
+
+    Love you bangaram ❤️❤️<br>
+    Many more happy returns of the day 🎂
+  </p>
+</div>
+
+<!-- PROPOSAL -->
+<div id="p8" class="page">
+  <h2>💍 Important Question 😏</h2>
+  <p>Will you marry me? 💖</p>
+  <input id="ans" placeholder="Type Yes">
+  <br>
+  <button onclick="final()">Submit 😁</button>
+</div>
+
+<!-- FINAL -->
+<div id="p9" class="page">
+  <h1>🎉 Hurrayyyyyy 😍💖🎉</h1>
+  <p>Na guess correct eh 😏❤️</p>
+</div>
+
+<script>
+function check(){
+  let p=document.getElementById("pass").value;
+  if(p==="2307"){
+    show("p2");
+  } else {
+    alert("Wrong code 😝");
+  }
+}
+
+function next(n){
+  show("p"+n);
+}
+
+function blow(){
+  let cake=document.getElementById("cake");
+  cake.style.transition="0.5s";
+  cake.style.transform="scale(1.5)";
+  cake.style.opacity="0";
+
+  setTimeout(()=>{
+    show("p3");
+  },500);
+}
+
+function final(){
+  let a=document.getElementById("ans").value.toLowerCase();
+  if(a==="yes"){
+    show("p9");
+  } else {
+    alert("Yes ani type cheyyali 😏");
+  }
+}
+
+function show(id){
+  let pages=document.querySelectorAll(".page");
+  pages.forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
